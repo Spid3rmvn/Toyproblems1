@@ -1,30 +1,38 @@
-function checkSpeed() {
-    // Prompt user for input
-    let speed = parseFloat(prompt("Enter the speed of the car:"));
+function speedDetector() {
+  //prompt the user
+  let speed = prompt("Enter your speed in km/h");
 
-    // Check if the input is a valid number
-    if (isNaN(speed)) {
-        alert("Please enter a valid number for speed.");
-        return; // Exit the function if input is invalid
-    }
+  speed = Number(speed);
 
-    // Speed limit
-    const speedLimit = 70;
+  if (isNaN(speed)) {
+    console.log("please input a number");
+    return;
+  }
 
-    // Calculate demerit points
-    if (speed < speedLimit) {
-        alert("Ok");
+  if (speed < 0) {
+    console.log("please input a value that is more than 0");
+    return;
+  }
+
+  //Speed Limit
+  const speedLimit = 70;
+
+  //points increase for every 5 km/s over the speed limit
+  const KmPerPoint = 5;
+
+  if (speed <= speedLimit) {
+    alert("OK");
+  } else {
+    const points = Math.floor((speed - speedLimit) / KmPerPoint);
+
+    //Check if License should be suspended
+    if (points > 12) {
+      alert("License suspended");
     } else {
-        // Calculate the number of demerit points
-        let demeritPoints = Math.floor((speed - speedLimit) / 5);
-        alert(`Points: ${demeritPoints}`);
-
-        // Check if the license should be suspended
-        if (demeritPoints > 12) {
-            alert("License suspended");
-        }
+      alert(`Points: ${points}`);
     }
+  }
 }
 
-// Call the function
-checkSpeed();
+//call the function
+speedDetector();

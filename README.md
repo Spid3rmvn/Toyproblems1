@@ -1,200 +1,141 @@
-# Toyproblems1
-# Student Grade Generator
 
-This project is a simple JavaScript program that takes a student's marks as input and generates the corresponding grade based on predefined criteria. It is designed to be interactive and user-friendly, utilizing prompts and alerts for input and output.
+# Projects
 
-## Overview
+This repository contains three different projects:
 
-The Student Grade Generator calculates the grade based on the marks provided by the user. The program validates the input to ensure that the marks are within the range of 0 to 100 and then determines the grade according to the following criteria:
+1. **Student Grade Calculator**
+2. **Speed Detector**
+3. **Net Salary Calculator**
 
-- **A**: 80 - 100
-- **B**: 65 - 79
-- **C**: 50 - 64
-- **D**: 40 - 49
-- **E**: 0 - 39
+Each project comes with an HTML and JavaScript implementation, and below is a detailed description of each.
 
-## Features
+---
 
-- Prompts the user to enter student marks.
-- Validates the input to ensure it is a number between 0 and 100.
-- Calculates and displays the corresponding grade based on the input marks.
-- Alerts the user with the final grade.
+## 1. Student Grade Calculator
 
-## How to Run
+### Description
 
-1. Open your web browser.
-2. Open the Developer Tools (usually F12).
-3. Navigate to the Console tab.
-4. Copy and paste the following code into the console:
+This project calculates a student's grade based on the marks inputted by the user. The script accepts marks between 0 and 100 and then calculates the corresponding grade based on the following grading system:
 
-```javascript
-function getStudentGrade() {
-    let marks = parseFloat(prompt("Enter the student's marks:"));
+- **A:** 79 and above
+- **B:** 60 to 78
+- **C:** 50 to 59
+- **D:** 40 to 49
+- **E:** Below 40
 
-    // Validate input
-    if (isNaN(marks) || marks < 0 || marks > 100) {
-        alert("Please enter a valid number between 0 and 100.");
-        return;
-    }
+The user is prompted to enter the marks, and the grade is displayed based on the provided marks. Input validation is performed to ensure the marks are a valid number within the range of 0 to 100.
 
-    // Determine grade
-    let grade;
-    if (marks >= 80) {
-        grade = "A";
-    } else if (marks >= 65) {
-        grade = "B";
-    } else if (marks >= 50) {
-        grade = "C";
-    } else if (marks >= 40) {
-        grade = "D";
-    } else {
-        grade = "E";
-    }
+### Features
 
-    // Output the result
-    alert(`The student's grade is: ${grade}`);
-}
+- User-friendly interface to input marks (between 0 and 100).
+- Input validation to check if the entered marks are a valid number and within the valid range.
+- Displays the result based on the calculated grade.
 
-// Call the function
-getStudentGrade();
+### How to Use
 
-# Speeding Demerit Points Calculator
+1. **Open the `index.html` file** in a browser.
+2. Enter marks (between 0 and 100) into the input field and click "Calculate Grade".
+3. The script will calculate the grade and show the result in an alert.
 
-This project is a JavaScript program that calculates demerit points based on the speed of a vehicle. It determines whether the driver is within the speed limit and calculates the corresponding demerit points for speeding. The program is designed to be interactive, utilizing prompts and alerts for input and output.
+### Code Walkthrough
 
-## Overview
+#### HTML (`index.html`)
 
-The Speeding Demerit Points Calculator prompts the user to enter the speed of their vehicle. If the speed is below the speed limit (70 km/h), it notifies the user that they are within the limit. For every 5 km/h above the limit, the program assigns demerit points. If the total demerit points exceed 12, it alerts the user that their license will be suspended.
+The HTML file creates a simple form where users can input marks and click a button to calculate the grade.
 
-## Features
+#### JavaScript (`gradegenerator.js`)
 
-- Prompts the user to enter the speed of the vehicle.
-- Validates the input to ensure it is a numeric value.
-- Calculates demerit points based on the speed limit.
-- Alerts the user if they are within the speed limit or if their license is at risk of suspension.
+This script:
+- Prompts the user to enter marks.
+- Validates if the input is a valid number within the range of 0-100.
+- Calculates and displays the corresponding grade based on the provided marks.
 
-## How to Run
+---
 
-1. Open your web browser.
-2. Open the Developer Tools (usually F12).
-3. Navigate to the Console tab.
-4. Copy and paste the following code into the console:
+## 2. Speed Detector
 
-```javascript
-function checkSpeed() {
-    let speed = parseFloat(prompt("Enter the speed of the vehicle:"));
+### Description
 
-    // Validate input
-    if (isNaN(speed)) {
-        alert("Please enter a valid numeric value for speed.");
-        return;
-    }
+This project checks if a vehicle's speed exceeds the legal speed limit. The user is prompted to input their speed in km/h, and the script determines if they are within the limit or have exceeded it.
 
-    const speedLimit = 70;
-    const demeritPointsPerUnit = 5;
-    let demeritPoints = 0;
+- The speed limit is set to **70 km/h**.
+- The script calculates how many points are accumulated based on every **5 km/h** over the speed limit.
+- If the points exceed 12, the user's license is suspended.
 
-    // Check speed against the limit
-    if (speed <= speedLimit) {
-        alert("Ok");
-    } else {
-        demeritPoints = Math.floor((speed - speedLimit) / demeritPointsPerUnit);
-        alert(`Demerit Points: ${demeritPoints}`);
-        
-        // Check for license suspension
-        if (demeritPoints > 12) {
-            alert("License Suspended");
-        }
-    }
-}
+### Features
 
-// Call the function
-checkSpeed();
+- Input validation ensures the speed is a valid positive number.
+- Displays whether the driver's speed is within the limit or how many points they have accumulated.
+- Alerts the driver if their license is suspended due to exceeding the point threshold.
 
-# Net Salary Calculator
+### How to Use
 
-This project is a JavaScript program that calculates an individual's net salary based on their basic salary and benefits. It computes the gross salary, PAYE tax, NHIF deductions, NSSF deductions, and ultimately the net salary. The program is designed to be interactive, using prompts and alerts for input and output.
+1. **Open the `index.html` file** for the Speed Detector in a browser.
+2. Click on the "Check Speed" button.
+3. The user will be prompted to enter their speed in km/h.
+4. The script will check if the speed is above the limit and display an appropriate message.
 
-## Overview
+### Code Walkthrough
 
-The Net Salary Calculator takes the basic salary and benefits as input and calculates the gross salary. It then computes the PAYE tax based on defined tax brackets, NHIF deductions based on gross salary, and NSSF deductions based on basic salary. Finally, it outputs the net salary after all deductions.
+#### HTML (`index.html`)
 
-## Features
+The HTML file creates a button for the user to click to check their speed.
 
-- Prompts the user to enter their basic salary and benefits.
-- Validates the input to ensure they are numeric values.
-- Calculates gross salary, PAYE tax, NHIF deductions, NSSF deductions, and net salary.
-- Displays a summary of the calculations in an alert box.
+#### JavaScript (`speeddetector.js`)
 
-## How to Run
+This script:
+- Prompts the user to enter their speed.
+- Validates the input.
+- Calculates if the speed exceeds the limit and how many points are accumulated.
+- Alerts the user if their license should be suspended.
 
-1. Open your web browser.
-2. Open the Developer Tools (usually F12).
-3. Navigate to the Console tab.
-4. Copy and paste the following code into the console:
+---
 
-```javascript
-function calculateNetSalary() {
-    let basicSalary = parseFloat(prompt("Enter your basic salary:"));
-    let benefits = parseFloat(prompt("Enter your benefits:"));
+## 3. Net Salary Calculator
 
-    if (isNaN(basicSalary) || isNaN(benefits)) {
-        alert("Please enter valid numeric values for salary and benefits.");
-        return;
-    }
+### Description
 
-    let grossSalary = basicSalary + benefits;
-    let tax = calculateTax(grossSalary);
-    let nhif = calculateNHIF(grossSalary);
-    let nssf = calculateNSSF(basicSalary);
-    let netSalary = grossSalary - (tax + nhif + nssf);
+This project calculates the net salary after deductions for PAYE (tax), NHIF (health insurance), and NSSF (social security). The user is prompted to enter their basic salary and benefits.
 
-    alert(`Gross Salary: ${grossSalary}\nPAYE Tax: ${tax}\nNHIF: ${nhif}\nNSSF: ${nssf}\nNet Salary: ${netSalary}`);
-}
+- The **PAYE** is calculated based on a set tax bracket.
+- The **NHIF** deduction is calculated based on the salary range.
+- The **NSSF** deduction is calculated using tiered contribution limits.
 
-function calculateTax(grossSalary) {
-    let tax = 0;
-    if (grossSalary <= 24000) {
-        tax = grossSalary * 0.10;
-    } else if (grossSalary <= 32333) {
-        tax = 2400 + (grossSalary - 24000) * 0.25;
-    } else {
-        tax = 2400 + (32333 - 24000) * 0.25 + (grossSalary - 32333) * 0.30;
-    }
-    return tax;
-}
+The script displays the gross salary, deductions, and the final net salary.
 
-function calculateNHIF(grossSalary) {
-    if (grossSalary <= 5999) {
-        return 150;
-    } else if (grossSalary <= 7999) {
-        return 300;
-    } else if (grossSalary <= 11999) {
-        return 400;
-    } else if (grossSalary <= 14999) {
-        return 500;
-    } else if (grossSalary <= 19999) {
-        return 600;
-    } else if (grossSalary <= 24999) {
-        return 750;
-    } else if (grossSalary <= 29999) {
-        return 850;
-    } else if (grossSalary <= 34999) {
-        return 900;
-    } else if (grossSalary <= 39999) {
-        return 950;
-    } else if (grossSalary <= 44999) {
-        return 1000;
-    } else if (grossSalary <= 49999) {
-        return 1100;
-    } else {
-        return 1200;
-    }
-}
+### Features
 
-function calculateNSSF(basicSalary) {
-    return basicSalary * 0.06;
-}
+- Allows users to input their basic salary and benefits.
+- Calculates gross salary, deductions, and net salary.
+- Displays the breakdown of deductions for PAYE, NHIF, and NSSF.
 
-// Call the function
-calculateNetSalary();
+### How to Use
+
+1. **Open the `index.html` file** in a browser.
+2. Click on the "Calculate Net Salary" button.
+3. The user will be prompted to input their basic salary and benefits.
+4. The script will calculate the net salary and show the results in an alert.
+
+### Code Walkthrough
+
+#### HTML (`index.html`)
+
+The HTML file creates a button for the user to click to calculate the net salary.
+
+#### JavaScript (`netsalarycalculator.js`)
+
+This script:
+- Prompts the user to enter basic salary and benefits.
+- Calculates gross salary and deductions (PAYE, NHIF, and NSSF).
+- Displays the results in an alert.
+
+---
+
+## Troubleshooting
+
+- **Invalid Input:** If the user enters non-numeric input or a negative value, they will be prompted to input a valid value.
+- **Results Not Displaying:** Ensure that the correct JavaScript file is linked in the HTML file using `<script src="path/to/your/script.js"></script>`.
+
+## License
+
+This project is open-source. Feel free to modify or distribute it according to your needs.
