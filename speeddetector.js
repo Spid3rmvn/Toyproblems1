@@ -1,6 +1,7 @@
+const readlineSync = require("readline-sync");
 function speedDetector() {
   //prompt the user
-  let speed = prompt("Enter your speed in km/h");
+  let speed = readlineSync.question("Enter your speed in km/h");
 
   speed = Number(speed);
 
@@ -21,15 +22,15 @@ function speedDetector() {
   const KmPerPoint = 5;
 
   if (speed <= speedLimit) {
-    alert("OK");
+    console.log("OK");
   } else {
     const points = Math.floor((speed - speedLimit) / KmPerPoint);
 
     //Check if License should be suspended
     if (points > 12) {
-      alert("License suspended");
+      console.log("License suspended");
     } else {
-      alert(`Points: ${points}`);
+      console.log(`Points: ${points}`);
     }
   }
 }

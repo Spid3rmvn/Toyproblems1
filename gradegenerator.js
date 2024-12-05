@@ -1,17 +1,21 @@
+const readlineSync = require("readline-sync");
+
 function getGrade() {
   //prompt the user to input marks
-  let marks = prompt("Input marks(0-100)");
+  let marks = readlineSync.question("Input marks(0-100)");
 
   marks = Number(marks);
 
   //check if the user has input a valid number
-  if (isNaN(marks)) {
-    alert("please input a number");
+  while(true) {
+  if (!isNaN(marks) && marks >= 0 && marks <= 100) {
+    break;
   }
-  if (marks < 0 || marks > 100);
+  else
   {
-    alert("please input a number between 0 and 100");
+    return console.log("Invalid input! Please enter a number between 0 and 100.");
   }
+}
 
   //Get the Grade
   let grade;
@@ -27,6 +31,7 @@ function getGrade() {
   } else {grade = "E";
 }
 // Display the result
-alert(`The grade for the marks ${marks} is: ${grade}`);
+console.log(`The grade for the marks ${marks} is: ${grade}`);
 }
 getGrade();
+

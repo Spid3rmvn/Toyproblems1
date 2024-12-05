@@ -1,141 +1,151 @@
 
-# Projects
+# JavaScript Utilities: Grading, Speed Detection, and Salary Calculation
 
-This repository contains three different projects:
+## Description
+This project contains three JavaScript utilities designed for specific purposes:
 
-1. **Student Grade Calculator**
-2. **Speed Detector**
-3. **Net Salary Calculator**
+1. **Grade Calculator**: Calculates the grade for a given mark.
+2. **Speed Detector**: Evaluates a driver's speed against a speed limit and issues warnings, points, or suspensions.
+3. **Net Salary Calculator**: Computes the net salary after applying PAYE, NHIF, and NSSF deductions.
 
-Each project comes with an HTML and JavaScript implementation, and below is a detailed description of each.
-
----
-
-## 1. Student Grade Calculator
-
-### Description
-
-This project calculates a student's grade based on the marks inputted by the user. The script accepts marks between 0 and 100 and then calculates the corresponding grade based on the following grading system:
-
-- **A:** 79 and above
-- **B:** 60 to 78
-- **C:** 50 to 59
-- **D:** 40 to 49
-- **E:** Below 40
-
-The user is prompted to enter the marks, and the grade is displayed based on the provided marks. Input validation is performed to ensure the marks are a valid number within the range of 0 to 100.
-
-### Features
-
-- User-friendly interface to input marks (between 0 and 100).
-- Input validation to check if the entered marks are a valid number and within the valid range.
-- Displays the result based on the calculated grade.
-
-### How to Use
-
-1. **Open the `index.html` file** in a browser.
-2. Enter marks (between 0 and 100) into the input field and click "Calculate Grade".
-3. The script will calculate the grade and show the result in an alert.
-
-### Code Walkthrough
-
-#### HTML (`index.html`)
-
-The HTML file creates a simple form where users can input marks and click a button to calculate the grade.
-
-#### JavaScript (`gradegenerator.js`)
-
-This script:
-- Prompts the user to enter marks.
-- Validates if the input is a valid number within the range of 0-100.
-- Calculates and displays the corresponding grade based on the provided marks.
+Each utility demonstrates essential JavaScript concepts such as user input handling, conditional logic, and modular functions.
 
 ---
 
-## 2. Speed Detector
+## Features
+### Grade Calculator
+- Accepts a numeric input (0-100) and validates it.
+- Determines the grade based on the following scale:
+  - **A**: 79-100
+  - **B**: 60-78
+  - **C**: 50-59
+  - **D**: 40-49
+  - **E**: 0-39
 
-### Description
+### Speed Detector
+- Prompts the user for the speed in km/h.
+- Compares the speed against a speed limit of 70 km/h.
+- Issues:
+  - **OK** if the speed is within the limit.
+  - **Points** for every 5 km/h above the limit.
+  - **License Suspension** if the driver accumulates more than 12 points.
 
-This project checks if a vehicle's speed exceeds the legal speed limit. The user is prompted to input their speed in km/h, and the script determines if they are within the limit or have exceeded it.
-
-- The speed limit is set to **70 km/h**.
-- The script calculates how many points are accumulated based on every **5 km/h** over the speed limit.
-- If the points exceed 12, the user's license is suspended.
-
-### Features
-
-- Input validation ensures the speed is a valid positive number.
-- Displays whether the driver's speed is within the limit or how many points they have accumulated.
-- Alerts the driver if their license is suspended due to exceeding the point threshold.
-
-### How to Use
-
-1. **Open the `index.html` file** for the Speed Detector in a browser.
-2. Click on the "Check Speed" button.
-3. The user will be prompted to enter their speed in km/h.
-4. The script will check if the speed is above the limit and display an appropriate message.
-
-### Code Walkthrough
-
-#### HTML (`index.html`)
-
-The HTML file creates a button for the user to click to check their speed.
-
-#### JavaScript (`speeddetector.js`)
-
-This script:
-- Prompts the user to enter their speed.
-- Validates the input.
-- Calculates if the speed exceeds the limit and how many points are accumulated.
-- Alerts the user if their license should be suspended.
+### Net Salary Calculator
+- Accepts inputs for basic salary and benefits.
+- Calculates:
+  - **PAYE** (Pay-As-You-Earn tax) based on salary brackets.
+  - **NHIF** (National Health Insurance Fund) contributions.
+  - **NSSF** (National Social Security Fund) contributions.
+  - **Net Salary** after deductions.
 
 ---
 
-## 3. Net Salary Calculator
-
-### Description
-
-This project calculates the net salary after deductions for PAYE (tax), NHIF (health insurance), and NSSF (social security). The user is prompted to enter their basic salary and benefits.
-
-- The **PAYE** is calculated based on a set tax bracket.
-- The **NHIF** deduction is calculated based on the salary range.
-- The **NSSF** deduction is calculated using tiered contribution limits.
-
-The script displays the gross salary, deductions, and the final net salary.
-
-### Features
-
-- Allows users to input their basic salary and benefits.
-- Calculates gross salary, deductions, and net salary.
-- Displays the breakdown of deductions for PAYE, NHIF, and NSSF.
-
-### How to Use
-
-1. **Open the `index.html` file** in a browser.
-2. Click on the "Calculate Net Salary" button.
-3. The user will be prompted to input their basic salary and benefits.
-4. The script will calculate the net salary and show the results in an alert.
-
-### Code Walkthrough
-
-#### HTML (`index.html`)
-
-The HTML file creates a button for the user to click to calculate the net salary.
-
-#### JavaScript (`netsalarycalculator.js`)
-
-This script:
-- Prompts the user to enter basic salary and benefits.
-- Calculates gross salary and deductions (PAYE, NHIF, and NSSF).
-- Displays the results in an alert.
+## Installation
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd <project-folder>
+   ```
+3. Install the required package:
+   ```bash
+   npm install readline-sync
+   ```
 
 ---
 
-## Troubleshooting
+## Usage
+Each utility runs independently. Use the commands below to execute them.
 
-- **Invalid Input:** If the user enters non-numeric input or a negative value, they will be prompted to input a valid value.
-- **Results Not Displaying:** Ensure that the correct JavaScript file is linked in the HTML file using `<script src="path/to/your/script.js"></script>`.
+### Grade Calculator
+1. Run the script:
+   ```bash
+   node grade-calculator.js
+   ```
+2. Input the marks (0-100) as prompted.
+3. Receive the grade based on the input.
+
+### Speed Detector
+1. Run the script:
+   ```bash
+   node speed-detector.js
+   ```
+2. Input the speed (km/h) as prompted.
+3. Get the result (OK, Points, or License Suspension).
+
+### Net Salary Calculator
+1. Run the script:
+   ```bash
+   node salary-calculator.js
+   ```
+2. Enter the basic salary and benefits as prompted.
+3. View the calculated gross salary, PAYE, NHIF, NSSF, and net salary.
+
+---
+
+## Example Outputs
+### Grade Calculator
+```bash
+Input marks(0-100): 85
+The grade for the marks 85 is: A
+```
+
+### Speed Detector
+```bash
+Enter your speed in km/h: 80
+Points: 2
+```
+
+### Net Salary Calculator
+```bash
+Enter Basic Salary (Ksh): 50000
+Enter Benefits (Ksh): 10000
+Gross Salary: Ksh 60000.00
+PAYE: Ksh 10883.25
+NHIF: Ksh 850.00
+NSSF: Ksh 1800.00
+Net Salary: Ksh 47266.75
+```
+
+---
+
+## Project Structure
+```
+project-folder/
+├── grade-calculator.js   # Script for grade calculation
+├── speed-detector.js     # Script for speed detection
+├── salary-calculator.js  # Script for salary computation
+└── README.md             # Documentation
+```
+
+---
+
+## Requirements
+- Node.js installed on your system.
+- `readline-sync` package for user input.
+
+---
+
+## Contributing
+Contributions are welcome! If you'd like to enhance any utility or add a new feature:
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. Push the changes:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request.
+
+---
 
 ## License
-
-This project is open-source. Feel free to modify or distribute it according to your needs.
+This project is licensed under the MIT License.
